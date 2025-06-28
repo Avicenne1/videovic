@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: videovic
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: daphne videovic.asgi:application
+    autoDeploy: true
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: videovic.settings
+      - key: SECRET_KEY
+        value: a3r_9@z!t8p+28x*1v5gk#z8wjr&qnby6du^j+3=c5w!s&li43
+      - key: DEBUG
+        value: False
