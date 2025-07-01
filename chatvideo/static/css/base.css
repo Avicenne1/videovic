@@ -1,12 +1,5 @@
-@import url(//fonts.googleapis.com/css?family=Muli);
-@font-face {
-    font-family:'Muli';
-    src: url('Mulish/static/Mulish-ExtraBoldItalic.ttf');
-    src: url('Mulish/static/Mulish-ExtraBold.ttf');
-    src: url('Mulish/static/Mulish-ExtraLightItalic.ttf');
-    src: url('Mulish/static/Mulish-ExtraLight.ttf');
+@import url('https://fonts.googleapis.com/css?family=Muli');
 
-}
 body {
     margin:0;
     padding:0;
