@@ -1,37 +1,30 @@
 {% extends "base.html" %}
-{% block title %}Log-in{% endblock %}
+{% block title %}Connexion{% endblock %}
+
 {% block content %}
-    <h1>Log-in</h1>
-    {% if form.errors %}
-        <p>
-            Your username and password didn't match. 
-            Please try again.
-        </p>
-        {% else %}
-        <p>Please use the following form  to Log-in. if you don't have an account <a href=" {% url 'register' %}">register here.</a></p>
-    {% endif %}
-    <div class=login-form>
-        <form action="{% url 'login' %}" method="post">
-            {{form.as_p}}
-            {% csrf_token %}
-            <input type="hidden" name="next" value="{{next}}"/>
-            <input type="submit" value="Log-in">
-        </form>
-        <p>
-            {% comment " pour resset le password" %} {% url 'password_reset' %} parametre smtp requis{% endcomment %}
-            <a href="#">
-                Forgotten your password?
-            </a>
-        </p>
+<div class="container" style="max-width: 500px;">
+  <h2 class="mb-3">🔐 Connexion</h2>
+
+  {% if form.errors %}
+    <div class="alert alert-danger">
+      Nom d'utilisateur ou mot de passe invalide.
     </div>
-    <div class="social">
-        <ul>
-            <li class="google">
-                <a href="#">
-                    Sign in with google
-                </a>
-            </li>
-        </ul>
-    </div>
-{% endblock  %}
-    
+  {% else %}
+    <p class="text-muted">
+      Connectez-vous ci-dessous. Vous n’avez pas de compte ?
+      <a href="{% url 'register' %}">Créer un compte</a>.
+    </p>
+  {% endif %}
+
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="btn btn-success w-100">Se connecter</button>
+  </form>
+
+  <p class="mt-3 text-center">
+    <a href="#">🔑 Mot de passe oublié ?</a>
+  </p>
+</div>
+{% endblock %}
