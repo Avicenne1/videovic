@@ -1,11 +1,15 @@
 {% extends "base.html" %}
-{% block title %}Creat an account{% endblock %}
+{% block title %}Créer un compte{% endblock %}
+
 {% block content %}
-    <h1>Create an account</h1>
-    <p>Please, sign up using the following form:</p>
-    <form method="post">
-        {{user_form.as_p}}
-        {% csrf_token %}
-        <p><input type="submit" value="Create my account"></p>
-    </form>
-{% endblock content %}
+<div class="container" style="max-width: 600px;">
+  <h2 class="mb-3">📝 Inscription</h2>
+  <p class="text-muted">Remplissez ce formulaire pour créer votre compte :</p>
+
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    <button type="submit" class="btn btn-success">Créer mon compte</button>
+  </form>
+</div>
+{% endblock %}
