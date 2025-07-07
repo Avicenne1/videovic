@@ -1,11 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Logged out{% endblock  %}
+{% block title %}Déconnexion{% endblock %}
+
 {% block content %}
-    <h1>
-        Logged out
-    </h1>
-    <p>You have been successfully.
-        You can <a href="{% url 'login' %}">Log-in again</a>
-    </p>
-    
-{% endblock  %}
+<div class="container text-center" style="max-width: 500px;">
+  <h2>👋 Déconnexion réussie</h2>
+  <p>Vous êtes maintenant déconnecté.</p>
+  <p>
+    <a href="{% url 'login' %}" class="btn btn-primary">Se reconnecter</a>
+  </p>
+</div>
+{% endblock %}
