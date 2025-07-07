@@ -1,35 +1,34 @@
 {% extends "base.html" %}
-
 {% block title %}Rejoindre une salle{% endblock %}
 
 {% block content %}
-  <div class="box" style="max-width: 500px; margin: auto; text-align: center;">
-    <h2 class="title">🎥 Rejoindre une salle d'appel</h2>
-    <p class="info">Entrez un nom de salle pour démarrer ou rejoindre un appel vidéo avec un contact.</p>
+<div class="container text-center">
+  <div class="card shadow p-4 mx-auto" style="max-width: 500px;">
+    <h2 class="mb-3">🎥 Rejoindre une salle d'appel</h2>
+    <p class="text-muted">Entrez un nom de salle pour démarrer ou rejoindre un appel vidéo avec un contact.</p>
 
-    <form id="roomForm" method="get" action="" style="margin-top: 20px;">
+    <form id="roomForm" method="get" action="" class="mt-4">
       <input
         type="text"
         id="roomInput"
         placeholder="Nom de la salle (ex: visio123)"
         required
-        class="input"
-        style="width: 100%; max-width: 350px; padding: 10px; margin-bottom: 15px;"
+        class="form-control mb-3"
       />
-      <br />
-      <button type="submit" class="button">🔔 Rejoindre la salle</button>
+      <button type="submit" class="btn btn-success w-100">🔔 Rejoindre la salle</button>
     </form>
   </div>
+</div>
 
-  <script>
-    document.getElementById('roomForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const roomName = document.getElementById('roomInput').value.trim();
-      if (roomName) {
-        window.location.href = `/video/room/${roomName}/`;
-      } else {
-        alert("Veuillez entrer un nom de salle.");
-      }
-    });
-  </script>
+<script>
+  document.getElementById('roomForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const roomName = document.getElementById('roomInput').value.trim();
+    if (roomName) {
+      window.location.href = `/video/room/${roomName}/`;
+    } else {
+      alert("Veuillez entrer un nom de salle.");
+    }
+  });
+</script>
 {% endblock %}
